@@ -1,0 +1,2550 @@
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[         0,          0]
+NotebookDataLength[    107384,       2549]
+NotebookOptionsPosition[    103739,       2484]
+NotebookOutlinePosition[    104133,       2500]
+CellTagsIndexPosition[    104090,       2497]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.846565039747924*^9, 3.846565047774845*^9}, {
+  3.846565079595649*^9, 3.846565080106826*^9}, {3.8465744587467546`*^9, 
+  3.8465744724194*^9}},
+ CellLabel->"In[24]:=",ExpressionUUID->"e3c6b423-28f8-4643-92ea-0c78abcfd342"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Taylor", "[", 
+   RowBox[{"f_", ",", "t_", ",", "x0__", ",", "t0_", ",", "k_"}], "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"d", "=", 
+     RowBox[{"Length", "[", "x0", "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"g", "[", "x_", "]"}], ":=", 
+     RowBox[{"x0", "+", 
+      RowBox[{
+       RowBox[{"f", "[", "x0", "]"}], "*", 
+       RowBox[{"(", 
+        RowBox[{"x", "-", "t0"}], ")"}]}]}]}], ";", 
+    RowBox[{"h", "=", 
+     RowBox[{"Array", "[", 
+      RowBox[{"hh", ",", "d"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"For", "[", 
+     RowBox[{
+      RowBox[{"j", "=", "2"}], ",", 
+      RowBox[{"j", "<=", "k"}], ",", 
+      RowBox[{"j", "++"}], ",", 
+      RowBox[{
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"i", "=", "1"}], ",", 
+         RowBox[{"i", "<=", "d"}], ",", 
+         RowBox[{"i", "++"}], ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"h", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "[", "z_", "]"}], "=", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"g", "[", "x", "]"}], "[", 
+              RowBox[{"[", "i", "]"}], "]"}], "+", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"z", "-", "t0"}], ")"}], 
+              RowBox[{"\:02c6j", "/", 
+               RowBox[{"j", "!"}]}], "*", 
+              RowBox[{"D", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"f", "[", 
+                  RowBox[{"g", "[", "s", "]"}], "]"}], "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"s", ",", 
+                  RowBox[{"j", "-", "1"}]}], "}"}]}], "]"}]}]}], "/.", " ", 
+            RowBox[{"{", 
+             RowBox[{"s", "->", "t0"}], "}"}]}]}], ";"}]}], "]"}], ";", 
+       RowBox[{"v", "=", 
+        RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"i", "=", "1"}], ",", 
+         RowBox[{"i", "<=", "d"}], ",", 
+         RowBox[{"i", "++"}], ",", 
+         RowBox[{"v", "=", 
+          RowBox[{"Append", "[", 
+           RowBox[{"v", ",", 
+            RowBox[{
+             RowBox[{"h", "[", 
+              RowBox[{"[", "i", "]"}], "]"}], "[", "x", "]"}]}], "]"}]}]}], 
+        "]"}], ";", 
+       RowBox[{
+        RowBox[{"g", "[", "x_", "]"}], "=", "v"}]}]}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Return", "[", 
+     RowBox[{"g", "[", "t", "]"}], "]"}]}], ")"}]}], "\n", 
+ RowBox[{
+  RowBox[{"f", "[", "x__", "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"f1", "[", 
+     RowBox[{
+      RowBox[{"x", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", 
+      RowBox[{"x", "[", 
+       RowBox[{"[", "2", "]"}], "]"}]}], "]"}], ",", 
+    RowBox[{"f2", "[", 
+     RowBox[{
+      RowBox[{"x", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", 
+      RowBox[{"x", "[", 
+       RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], "}"}]}], "\n", 
+ RowBox[{"Taylor", "[", 
+  RowBox[{"f", ",", "t", ",", 
+   RowBox[{"{", 
+    RowBox[{"x1", ",", "x2"}], "}"}], ",", "0", ",", "2"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.958364731209016*^9, 3.958364731210332*^9}},
+ CellLabel->"In[25]:=",ExpressionUUID->"7e32a0be-8137-46a6-93ab-31d4f3909437"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"x1", "+", 
+    RowBox[{"t", " ", 
+     RowBox[{"f1", "[", 
+      RowBox[{"x1", ",", "x2"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "2"], " ", "\:02c6j", " ", "t", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"f2", "[", 
+         RowBox[{"x1", ",", "x2"}], "]"}], " ", 
+        RowBox[{
+         SuperscriptBox["f1", 
+          TagBox[
+           RowBox[{"(", 
+            RowBox[{"0", ",", "1"}], ")"}],
+           Derivative],
+          MultilineFunction->None], "[", 
+         RowBox[{"x1", ",", "x2"}], "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"f1", "[", 
+         RowBox[{"x1", ",", "x2"}], "]"}], " ", 
+        RowBox[{
+         SuperscriptBox["f1", 
+          TagBox[
+           RowBox[{"(", 
+            RowBox[{"1", ",", "0"}], ")"}],
+           Derivative],
+          MultilineFunction->None], "[", 
+         RowBox[{"x1", ",", "x2"}], "]"}]}]}], ")"}]}]}], ",", 
+   RowBox[{"x2", "+", 
+    RowBox[{"t", " ", 
+     RowBox[{"f2", "[", 
+      RowBox[{"x1", ",", "x2"}], "]"}]}], "+", 
+    RowBox[{
+     FractionBox["1", "2"], " ", "\:02c6j", " ", "t", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"f2", "[", 
+         RowBox[{"x1", ",", "x2"}], "]"}], " ", 
+        RowBox[{
+         SuperscriptBox["f2", 
+          TagBox[
+           RowBox[{"(", 
+            RowBox[{"0", ",", "1"}], ")"}],
+           Derivative],
+          MultilineFunction->None], "[", 
+         RowBox[{"x1", ",", "x2"}], "]"}]}], "+", 
+       RowBox[{
+        RowBox[{"f1", "[", 
+         RowBox[{"x1", ",", "x2"}], "]"}], " ", 
+        RowBox[{
+         SuperscriptBox["f2", 
+          TagBox[
+           RowBox[{"(", 
+            RowBox[{"1", ",", "0"}], ")"}],
+           Derivative],
+          MultilineFunction->None], "[", 
+         RowBox[{"x1", ",", "x2"}], "]"}]}]}], ")"}]}]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.9583666991694508`*^9},
+ CellLabel->"Out[27]=",ExpressionUUID->"36bc219d-f935-4936-8421-029fb877d177"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.846565039747924*^9, 3.846565047774845*^9}, {
+  3.846565079595649*^9, 3.846565080106826*^9}, {3.8465744587467546`*^9, 
+  3.8465744724194*^9}},
+ CellLabel->"In[28]:=",ExpressionUUID->"5af71655-b85f-4d76-8f52-fd90689301b5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"B", "[", 
+    RowBox[{"f_", ",", "t_", ",", "x0_", ",", "t0_", ",", "n_"}], "]"}], ":=", 
+   RowBox[{"(", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"n", "==", "0"}], ",", 
+      RowBox[{"Return", "[", "x0", "]"}], ",", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"n", "==", "1"}], ",", 
+        RowBox[{"Return", "[", 
+         RowBox[{"x0", "+", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"t", "-", "t0"}], ")"}], "*", 
+           RowBox[{"f", "[", "x0", "]"}]}]}], "]"}], ",", 
+        RowBox[{
+         RowBox[{"sample", "=", 
+          RowBox[{"x0", "+", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"t", "-", "t0"}], ")"}], "*", 
+            RowBox[{"f", "[", "x0", "]"}]}]}]}], ";", 
+         RowBox[{"g", "=", 
+          RowBox[{"Graph", "[", 
+           RowBox[{"{", 
+            RowBox[{"1", "->", "2"}], "}"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"g", "=", 
+          RowBox[{"Graph", "[", 
+           RowBox[{"g", ",", 
+            RowBox[{"VertexLabels", "->", 
+             RowBox[{"{", 
+              RowBox[{"1", "->", 
+               RowBox[{"D", "[", 
+                RowBox[{
+                 RowBox[{"f", "[", "y", "]"}], ",", "y"}], "]"}]}], "}"}]}]}],
+            "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"g", "=", 
+          RowBox[{"Graph", "[", 
+           RowBox[{"g", ",", 
+            RowBox[{"VertexLabels", "->", 
+             RowBox[{"{", 
+              RowBox[{"2", "->", 
+               RowBox[{"f", "[", "y", "]"}]}], "}"}]}]}], "]"}]}], ";", 
+         RowBox[{"m", "=", "1"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"sample", "=", 
+          RowBox[{
+           RowBox[{"sample", "+", 
+            RowBox[{
+             RowBox[{"1", "/", "2"}], "*", 
+             RowBox[{"(", 
+              RowBox[{"t", "-", "t0"}], ")"}], 
+             RowBox[{"\:02c6VertexCount", "[", "g", "]"}], "*", 
+             RowBox[{"Product", "[", 
+              RowBox[{
+               RowBox[{"ff", "[", 
+                RowBox[{"[", "2", "]"}], "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"ff", ",", 
+                 RowBox[{"List", "@@@", 
+                  RowBox[{"PropertyValue", "[", 
+                   RowBox[{"g", ",", "VertexLabels"}], "]"}]}]}], "}"}]}], 
+              "]"}]}]}], "/.", " ", 
+           RowBox[{"{", 
+            RowBox[{"y", "->", "x0"}], "}"}]}]}], ";", "\n", 
+         RowBox[{"list", "=", 
+          RowBox[{"{", "g", "}"}]}], ";", "\n", 
+         RowBox[{"While", "[", 
+          RowBox[{
+           RowBox[{"m", "<=", 
+            RowBox[{"(", 
+             RowBox[{"n", "-", "2"}], ")"}]}], ",", 
+           RowBox[{
+            RowBox[{"temp", "=", "list"}], ";", 
+            RowBox[{"list", "=", 
+             RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"Do", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"l", "=", 
+                RowBox[{"VertexCount", "[", "g", "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"For", "[", 
+                RowBox[{
+                 RowBox[{"j", "=", "1"}], ",", 
+                 RowBox[{"j", "<=", "l"}], ",", 
+                 RowBox[{"j", "++"}], ",", 
+                 RowBox[{
+                  RowBox[{"gg", "=", 
+                   RowBox[{"VertexAdd", "[", 
+                    RowBox[{"g", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"l", "+", "1"}], "}"}]}], "]"}]}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"gg", "=", 
+                   RowBox[{"Graph", "[", 
+                    RowBox[{"gg", ",", 
+                    RowBox[{"VertexLabels", "->", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"l", "+", "1"}], "->", 
+                    RowBox[{"f", "[", "y", "]"}]}], "}"}]}]}], "]"}]}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"lab", "=", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Sort", "[", 
+                    RowBox[{"List", "@@@", 
+                    RowBox[{"PropertyValue", "[", 
+                    RowBox[{"gg", ",", "VertexLabels"}], "]"}]}], "]"}], "[", 
+                    
+                    RowBox[{"[", "j", "]"}], "]"}], "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"gg", "=", 
+                   RowBox[{"Graph", "[", 
+                    RowBox[{"gg", ",", 
+                    RowBox[{"VertexLabels", "->", 
+                    RowBox[{"{", 
+                    RowBox[{"j", "->", 
+                    RowBox[{"D", "[", 
+                    RowBox[{"lab", ",", "y"}], "]"}]}], "}"}]}]}], "]"}]}], 
+                  ";", "\[IndentingNewLine]", 
+                  RowBox[{"gg", "=", 
+                   RowBox[{"EdgeAdd", "[", 
+                    RowBox[{"gg", ",", 
+                    RowBox[{"j", "->", 
+                    RowBox[{"l", "+", "1"}]}]}], "]"}]}], ";", 
+                  RowBox[{"Print", "[", "gg", "]"}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"sample", "=", 
+                   RowBox[{
+                    RowBox[{"sample", "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"t", "-", "t0"}], ")"}], "\:02c6", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"l", "+", "1"}], ")"}], "/", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"l", "+", "1"}], ")"}], "!"}]}], "*", 
+                    RowBox[{"Product", "[", 
+                    RowBox[{
+                    RowBox[{"ff", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ff", ",", 
+                    RowBox[{"List", "@@@", 
+                    RowBox[{"PropertyValue", "[", 
+                    RowBox[{"gg", ",", "VertexLabels"}], "]"}]}]}], "}"}]}], 
+                    "]"}]}]}], "/.", " ", 
+                    RowBox[{"{", 
+                    RowBox[{"y", "->", "x0"}], "}"}]}]}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"list", "=", 
+                   RowBox[{"Append", "[", 
+                    RowBox[{"list", ",", "gg"}], "]"}]}]}]}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"g", ",", "temp"}], "}"}]}], "]"}], ";", 
+            RowBox[{"m", "=", 
+             RowBox[{"m", "+", "1"}]}]}]}], "]"}], ";", "\n", 
+         RowBox[{"Return", "[", "sample", "]"}]}]}], "]"}]}], "]"}], ")"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.958364744109153*^9, 3.958364751099456*^9}},
+ CellLabel->"In[29]:=",ExpressionUUID->"d8a99b74-9137-4e05-a37d-19b8561d4228"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"B", "[", 
+  RowBox[{"f", ",", "t", ",", "x0", ",", "t0", ",", "4"}], "]"}]], "Input",
+ CellChangeTimes->{{3.958364766699416*^9, 3.958364766700941*^9}},
+ CellLabel->"In[30]:=",ExpressionUUID->"8565b6eb-2d08-4ac6-b470-e4a8e0577a75"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3}, {{{1, 2}, {1, 3}}, Null}, {
+      GraphLayout -> {"Dimension" -> 2}, 
+       VertexLabels -> {
+        3 -> $CellContext`f[$CellContext`y], 
+         2 -> $CellContext`f[$CellContext`y], 1 -> 
+         Derivative[2][$CellContext`f][$CellContext`y]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{{0.4472135954999579, 0.8944271909999159}, {0., 0.}}, {{
+         0.4472135954999579, 0.8944271909999159}, {0.8944271909999159, 0.}}}, 
+         0.011386058141428929`]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {
+         DiskBox[{0.4472135954999579, 0.8944271909999159}, 
+          0.011386058141428929], InsetBox[
+          RowBox[{
+           SuperscriptBox["f", "\[Prime]\[Prime]",
+            MultilineFunction->None], "(", "y", ")"}], 
+          Offset[{2, 2}, {0.4585996536413869, 0.9058132491413448}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{0., 0.}, 0.011386058141428929], 
+         InsetBox[
+          RowBox[{"f", "(", "y", ")"}], 
+          Offset[{2, 2}, {0.011386058141428929, 0.011386058141428929}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.8944271909999159, 0.}, 0.011386058141428929], InsetBox[
+          RowBox[{"f", "(", "y", ")"}], 
+          Offset[{2, 2}, {0.9058132491413448, 0.011386058141428929}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Print",
+ CellChangeTimes->{3.958366702088237*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"8859d018-9006-4496-86c3-09f756bcf1e0"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3}, {{{1, 2}, {2, 3}}, Null}, {
+      GraphLayout -> {"Dimension" -> 2}, 
+       VertexLabels -> {
+        3 -> $CellContext`f[$CellContext`y], 2 -> 
+         Derivative[1][$CellContext`f][$CellContext`y], 1 -> 
+         Derivative[1][$CellContext`f][$CellContext`y]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{{0., 3.6739403974420594`*^-16}, {1., 
+         2.4492935982947064`*^-16}}, {{1., 2.4492935982947064`*^-16}, {2., 
+         0.}}}, 0.02261146496815286]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {DiskBox[{0., 3.6739403974420594*^-16}, 0.02261146496815286], 
+         InsetBox[
+          RowBox[{
+           SuperscriptBox["f", "\[Prime]",
+            MultilineFunction->None], "(", "y", ")"}], 
+          Offset[{2, 2}, {0.02261146496815286, 0.02261146496815323}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{1., 2.4492935982947064*^-16}, 0.02261146496815286], InsetBox[
+          RowBox[{
+           SuperscriptBox["f", "\[Prime]",
+            MultilineFunction->None], "(", "y", ")"}], 
+          Offset[{2, 2}, {1.0226114649681528, 0.022611464968153108}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{2., 0.}, 0.02261146496815286], 
+         InsetBox[
+          RowBox[{"f", "(", "y", ")"}], 
+          Offset[{2, 2}, {2.022611464968153, 0.02261146496815286}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Print",
+ CellChangeTimes->{3.958366702120324*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"691ac18e-a42f-4ae5-a0fc-0a16400a455c"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3, 4}, {{{1, 2}, {1, 3}, {1, 4}}, Null}, {
+      GraphLayout -> {"Dimension" -> 2}, 
+       VertexLabels -> {
+        3 -> $CellContext`f[$CellContext`y], 
+         4 -> $CellContext`f[$CellContext`y], 
+         2 -> $CellContext`f[$CellContext`y], 1 -> 
+         Derivative[3][$CellContext`f][$CellContext`y]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{{0.7745966692414834, 0.7745966692414834}, {0., 0.}}, {{
+         0.7745966692414834, 0.7745966692414834}, {0.7745966692414834, 
+         0.}}, {{0.7745966692414834, 0.7745966692414834}, {
+         1.5491933384829668`, 0.}}}, 0.018845521490452433`]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {
+         DiskBox[{0.7745966692414834, 0.7745966692414834}, 
+          0.018845521490452433], InsetBox[
+          RowBox[{
+           SuperscriptBox["f", 
+            TagBox[
+             RowBox[{"(", "3", ")"}],
+             Derivative],
+            MultilineFunction->None], "(", "y", ")"}], 
+          Offset[{2, 2}, {0.7934421907319358, 0.7934421907319358}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{0., 0.}, 0.018845521490452433], 
+         InsetBox[
+          RowBox[{"f", "(", "y", ")"}], 
+          Offset[{2, 2}, {0.018845521490452433, 0.018845521490452433}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.7745966692414834, 0.}, 0.018845521490452433], InsetBox[
+          RowBox[{"f", "(", "y", ")"}], 
+          Offset[{2, 2}, {0.7934421907319358, 0.018845521490452433}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{1.5491933384829668, 0.}, 0.018845521490452433], InsetBox[
+          RowBox[{"f", "(", "y", ")"}], 
+          Offset[{2, 2}, {1.5680388599734192, 0.018845521490452433}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Print",
+ CellChangeTimes->{3.958366702154604*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"eed941e3-8b44-4e26-a44b-0ad024ebfe73"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3, 4}, {{{1, 2}, {1, 3}, {2, 4}}, Null}, {
+      GraphLayout -> {"Dimension" -> 2}, 
+       VertexLabels -> {
+        3 -> $CellContext`f[$CellContext`y], 
+         4 -> $CellContext`f[$CellContext`y], 2 -> 
+         Derivative[1][$CellContext`f][$CellContext`y], 1 -> 
+         Derivative[2][$CellContext`f][$CellContext`y]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{{0.4629100498862757, 1.8516401995451028`}, {0., 
+         0.9258200997725514}}, {{0.4629100498862757, 1.8516401995451028`}, {
+         0.9258200997725514, 0.9258200997725514}}, {{0., 
+         0.9258200997725514}, {0., 0.}}}, 0.02139620166504999]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {
+         DiskBox[{0.4629100498862757, 1.8516401995451028}, 
+          0.02139620166504999], InsetBox[
+          RowBox[{
+           SuperscriptBox["f", "\[Prime]\[Prime]",
+            MultilineFunction->None], "(", "y", ")"}], 
+          Offset[{2, 2}, {0.4843062515513257, 1.8730364012101528}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0., 0.9258200997725514}, 0.02139620166504999], InsetBox[
+          RowBox[{
+           SuperscriptBox["f", "\[Prime]",
+            MultilineFunction->None], "(", "y", ")"}], 
+          Offset[{2, 2}, {0.02139620166504999, 0.9472163014376014}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.9258200997725514, 0.9258200997725514}, 
+          0.02139620166504999], InsetBox[
+          RowBox[{"f", "(", "y", ")"}], 
+          Offset[{2, 2}, {0.9472163014376014, 0.9472163014376014}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{0., 0.}, 0.02139620166504999], 
+         InsetBox[
+          RowBox[{"f", "(", "y", ")"}], 
+          Offset[{2, 2}, {0.02139620166504999, 0.02139620166504999}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Print",
+ CellChangeTimes->{3.9583667021849623`*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"8e9ccae5-af17-4256-a50e-a33d5c759069"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3, 4}, {{{1, 2}, {1, 3}, {3, 4}}, Null}, {
+      GraphLayout -> {"Dimension" -> 2}, 
+       VertexLabels -> {
+        3 -> Derivative[1][$CellContext`f][$CellContext`y], 
+         4 -> $CellContext`f[$CellContext`y], 
+         2 -> $CellContext`f[$CellContext`y], 1 -> 
+         Derivative[2][$CellContext`f][$CellContext`y]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{{0.4629100498862757, 1.8516401995451028`}, {0., 
+         0.9258200997725514}}, {{0.4629100498862757, 1.8516401995451028`}, {
+         0.9258200997725514, 0.9258200997725514}}, {{0.9258200997725514, 
+         0.9258200997725514}, {0.9258200997725514, 0.}}}, 
+         0.02139620166504999]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {
+         DiskBox[{0.4629100498862757, 1.8516401995451028}, 
+          0.02139620166504999], InsetBox[
+          RowBox[{
+           SuperscriptBox["f", "\[Prime]\[Prime]",
+            MultilineFunction->None], "(", "y", ")"}], 
+          Offset[{2, 2}, {0.4843062515513257, 1.8730364012101528}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0., 0.9258200997725514}, 0.02139620166504999], InsetBox[
+          RowBox[{"f", "(", "y", ")"}], 
+          Offset[{2, 2}, {0.02139620166504999, 0.9472163014376014}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.9258200997725514, 0.9258200997725514}, 
+          0.02139620166504999], InsetBox[
+          RowBox[{
+           SuperscriptBox["f", "\[Prime]",
+            MultilineFunction->None], "(", "y", ")"}], 
+          Offset[{2, 2}, {0.9472163014376014, 0.9472163014376014}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.9258200997725514, 0.}, 0.02139620166504999], InsetBox[
+          RowBox[{"f", "(", "y", ")"}], 
+          Offset[{2, 2}, {0.9472163014376014, 0.02139620166504999}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Print",
+ CellChangeTimes->{3.9583667022064667`*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"e3e14f6b-4f39-4fa8-a35d-80a71ca7e47b"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3, 4}, {{{1, 2}, {2, 3}, {1, 4}}, Null}, {
+      GraphLayout -> {"Dimension" -> 2}, 
+       VertexLabels -> {
+        3 -> $CellContext`f[$CellContext`y], 
+         4 -> $CellContext`f[$CellContext`y], 2 -> 
+         Derivative[1][$CellContext`f][$CellContext`y], 1 -> 
+         Derivative[2][$CellContext`f][$CellContext`y]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{{0., 0.9258200997725514}, {0.4629100498862757, 
+         1.8516401995451028`}}, {{0., 0.9258200997725514}, {0., 0.}}, {{
+         0.4629100498862757, 1.8516401995451028`}, {0.9258200997725514, 
+         0.9258200997725514}}}, 0.02139620166504999]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {DiskBox[{0., 0.9258200997725514}, 0.02139620166504999], 
+         InsetBox[
+          RowBox[{
+           SuperscriptBox["f", "\[Prime]\[Prime]",
+            MultilineFunction->None], "(", "y", ")"}], 
+          Offset[{2, 2}, {0.02139620166504999, 0.9472163014376014}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.4629100498862757, 1.8516401995451028}, 
+          0.02139620166504999], InsetBox[
+          RowBox[{
+           SuperscriptBox["f", "\[Prime]",
+            MultilineFunction->None], "(", "y", ")"}], 
+          Offset[{2, 2}, {0.4843062515513257, 1.8730364012101528}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.9258200997725514, 0.9258200997725514}, 
+          0.02139620166504999], InsetBox[
+          RowBox[{"f", "(", "y", ")"}], 
+          Offset[{2, 2}, {0.9472163014376014, 0.9472163014376014}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{0., 0.}, 0.02139620166504999], 
+         InsetBox[
+          RowBox[{"f", "(", "y", ")"}], 
+          Offset[{2, 2}, {0.02139620166504999, 0.02139620166504999}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Print",
+ CellChangeTimes->{3.958366702243387*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"3dd4c6b1-8278-47f1-bb65-8806cbe4293b"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3, 4}, {{{1, 2}, {2, 3}, {2, 4}}, Null}, {
+      GraphLayout -> {"Dimension" -> 2}, 
+       VertexLabels -> {
+        3 -> $CellContext`f[$CellContext`y], 
+         4 -> $CellContext`f[$CellContext`y], 2 -> 
+         Derivative[2][$CellContext`f][$CellContext`y], 1 -> 
+         Derivative[1][$CellContext`f][$CellContext`y]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{{0., 0.}, {0.7745966692414834, 0.7745966692414834}}, {{
+         0.7745966692414834, 0.7745966692414834}, {0.7745966692414834, 
+         0.}}, {{0.7745966692414834, 0.7745966692414834}, {
+         1.5491933384829668`, 0.}}}, 0.018845521490452433`]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {DiskBox[{0., 0.}, 0.018845521490452433], InsetBox[
+          RowBox[{
+           SuperscriptBox["f", "\[Prime]",
+            MultilineFunction->None], "(", "y", ")"}], 
+          Offset[{2, 2}, {0.018845521490452433, 0.018845521490452433}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.7745966692414834, 0.7745966692414834}, 
+          0.018845521490452433], InsetBox[
+          RowBox[{
+           SuperscriptBox["f", "\[Prime]\[Prime]",
+            MultilineFunction->None], "(", "y", ")"}], 
+          Offset[{2, 2}, {0.7934421907319358, 0.7934421907319358}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.7745966692414834, 0.}, 0.018845521490452433], InsetBox[
+          RowBox[{"f", "(", "y", ")"}], 
+          Offset[{2, 2}, {0.7934421907319358, 0.018845521490452433}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{1.5491933384829668, 0.}, 0.018845521490452433], InsetBox[
+          RowBox[{"f", "(", "y", ")"}], 
+          Offset[{2, 2}, {1.5680388599734192, 0.018845521490452433}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Print",
+ CellChangeTimes->{3.9583667022849607`*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"8f5d04f4-7724-44f9-8817-6555391ba115"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3, 4}, {{{1, 2}, {2, 3}, {3, 4}}, Null}, {
+      GraphLayout -> {"Dimension" -> 2}, 
+       VertexLabels -> {
+        3 -> Derivative[1][$CellContext`f][$CellContext`y], 
+         4 -> $CellContext`f[$CellContext`y], 2 -> 
+         Derivative[1][$CellContext`f][$CellContext`y], 1 -> 
+         Derivative[1][$CellContext`f][$CellContext`y]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{{0., 6.123233995736766*^-16}, {1., 
+         4.898587196589413*^-16}}, {{1., 4.898587196589413*^-16}, {2., 
+         2.4492935982947064`*^-16}}, {{2., 2.4492935982947064`*^-16}, {3., 
+         0.}}}, 0.030239520958083826`]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {DiskBox[{0., 6.123233995736766*^-16}, 0.030239520958083826], 
+         InsetBox[
+          RowBox[{
+           SuperscriptBox["f", "\[Prime]",
+            MultilineFunction->None], "(", "y", ")"}], 
+          Offset[{2, 2}, {0.030239520958083826, 0.030239520958084437}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{1., 4.898587196589413*^-16}, 0.030239520958083826], InsetBox[
+          RowBox[{
+           SuperscriptBox["f", "\[Prime]",
+            MultilineFunction->None], "(", "y", ")"}], 
+          Offset[{2, 2}, {1.030239520958084, 0.030239520958084316}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{2., 2.4492935982947064*^-16}, 0.030239520958083826], 
+         InsetBox[
+          RowBox[{
+           SuperscriptBox["f", "\[Prime]",
+            MultilineFunction->None], "(", "y", ")"}], 
+          Offset[{2, 2}, {2.0302395209580837, 0.030239520958084073}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{3., 0.}, 0.030239520958083826], 
+         InsetBox[
+          RowBox[{"f", "(", "y", ")"}], 
+          Offset[{2, 2}, {3.0302395209580837, 0.030239520958083826}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Print",
+ CellChangeTimes->{3.958366702328315*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"4787e75d-eaea-4f61-b26f-f589893001e8"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"x0", "+", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"t", "-", "t0"}], ")"}], " ", 
+   RowBox[{"f", "[", "x0", "]"}]}], "+", 
+  RowBox[{
+   FractionBox["1", "2"], " ", 
+   RowBox[{"(", 
+    RowBox[{"t", "-", "t0"}], ")"}], " ", 
+   RowBox[{"f", "[", "x0", "]"}], " ", 
+   RowBox[{"\:02c6VertexCount", "[", 
+    GraphicsBox[
+     NamespaceBox["NetworkGraphics",
+      DynamicModuleBox[{Typeset`graph = HoldComplete[
+        Graph[{1, 2}, {{{1, 2}}, Null}, {
+         GraphLayout -> {"Dimension" -> 2}, 
+          VertexLabels -> {
+           2 -> $CellContext`f[$CellContext`y], 1 -> 
+            Derivative[1][$CellContext`f][$CellContext`y]}}]]}, 
+       TagBox[GraphicsGroupBox[{
+          {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+           ArrowBox[{{1., 0.}, {0., 1.2246467991473532`*^-16}}, 0.01273]}, 
+          {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+           0.7]}], {DiskBox[{1., 0.}, 0.01273], InsetBox[
+             RowBox[{
+              SuperscriptBox["f", "\[Prime]",
+               MultilineFunction->None], "(", "y", ")"}], 
+             Offset[{2, 2}, {1.01273, 0.01273}], ImageScaled[{0, 0}],
+             BaseStyle->"Graphics"]}, {
+            DiskBox[{0., 1.2246467991473532*^-16}, 0.01273], InsetBox[
+             RowBox[{"f", "(", "y", ")"}], 
+             Offset[{2, 2}, {0.01273, 0.012730000000000123}], ImageScaled[{0, 0}],
+             BaseStyle->"Graphics"]}}}],
+        MouseAppearanceTag["NetworkGraphics"]],
+       AllowKernelInitialization->False]],
+     DefaultBaseStyle->{
+      "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+     FormatType->TraditionalForm,
+     FrameTicks->None], "]"}], " ", 
+   RowBox[{
+    SuperscriptBox["f", "\[Prime]",
+     MultilineFunction->None], "[", "x0", "]"}]}], "+", 
+  RowBox[{
+   FractionBox["1", "2"], " ", "\:02c6", " ", 
+   RowBox[{"(", 
+    RowBox[{"t", "-", "t0"}], ")"}], " ", 
+   RowBox[{"f", "[", "x0", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     SuperscriptBox["f", "\[Prime]",
+      MultilineFunction->None], "[", "x0", "]"}], "2"]}], "+", 
+  RowBox[{
+   FractionBox["1", "6"], " ", "\:02c6", " ", 
+   RowBox[{"(", 
+    RowBox[{"t", "-", "t0"}], ")"}], " ", 
+   RowBox[{"f", "[", "x0", "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{
+     SuperscriptBox["f", "\[Prime]",
+      MultilineFunction->None], "[", "x0", "]"}], "3"]}], "+", 
+  RowBox[{
+   FractionBox["1", "2"], " ", "\:02c6", " ", 
+   RowBox[{"(", 
+    RowBox[{"t", "-", "t0"}], ")"}], " ", 
+   SuperscriptBox[
+    RowBox[{"f", "[", "x0", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox["f", "\[Prime]\[Prime]",
+     MultilineFunction->None], "[", "x0", "]"}]}], "+", 
+  RowBox[{
+   FractionBox["2", "3"], " ", "\:02c6", " ", 
+   RowBox[{"(", 
+    RowBox[{"t", "-", "t0"}], ")"}], " ", 
+   SuperscriptBox[
+    RowBox[{"f", "[", "x0", "]"}], "2"], " ", 
+   RowBox[{
+    SuperscriptBox["f", "\[Prime]",
+     MultilineFunction->None], "[", "x0", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox["f", "\[Prime]\[Prime]",
+     MultilineFunction->None], "[", "x0", "]"}]}], "+", 
+  RowBox[{
+   FractionBox["1", "6"], " ", "\:02c6", " ", 
+   RowBox[{"(", 
+    RowBox[{"t", "-", "t0"}], ")"}], " ", 
+   SuperscriptBox[
+    RowBox[{"f", "[", "x0", "]"}], "3"], " ", 
+   RowBox[{
+    SuperscriptBox["f", 
+     TagBox[
+      RowBox[{"(", "3", ")"}],
+      Derivative],
+     MultilineFunction->None], "[", "x0", "]"}]}]}]], "Output",
+ CellChangeTimes->{3.958366702370563*^9},
+ CellLabel->"Out[30]=",ExpressionUUID->"7327f5d8-e22c-46d0-9e87-aaa0d9000bff"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"MCsample", "[", 
+    RowBox[{"f_", ",", "t_", ",", "x0_", ",", "dist_"}], "]"}], ":=", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"n", "=", 
+      RowBox[{"RandomVariate", "[", "dist", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"n", "==", "0"}], ",", 
+       RowBox[{"Return", "[", 
+        RowBox[{"x0", "/", 
+         RowBox[{"PDF", "[", 
+          RowBox[{"dist", ",", "0"}], "]"}]}], "]"}], ",", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"n", "==", "1"}], ",", 
+         RowBox[{"Return", "[", 
+          RowBox[{"t", "*", 
+           RowBox[{
+            RowBox[{"f", "[", "x0", "]"}], "/", 
+            RowBox[{"PDF", "[", 
+             RowBox[{"dist", ",", "1"}], "]"}]}]}], "]"}], ",", 
+         RowBox[{
+          RowBox[{"g", "=", 
+           RowBox[{"Graph", "[", 
+            RowBox[{"{", 
+             RowBox[{"1", "->", "2"}], "}"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"g", "=", 
+           RowBox[{"Graph", "[", 
+            RowBox[{"g", ",", 
+             RowBox[{"VertexLabels", "->", 
+              RowBox[{"{", 
+               RowBox[{"1", "->", 
+                RowBox[{"D", "[", 
+                 RowBox[{
+                  RowBox[{"f", "[", "y", "]"}], ",", "y"}], "]"}]}], 
+               "}"}]}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"g", "=", 
+           RowBox[{"Graph", "[", 
+            RowBox[{"g", ",", 
+             RowBox[{"VertexLabels", "->", 
+              RowBox[{"{", 
+               RowBox[{"2", "->", 
+                RowBox[{"f", "[", "y", "]"}]}], "}"}]}]}], "]"}]}], ";", 
+          RowBox[{"m", "=", "1"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"While", "[", 
+           RowBox[{
+            RowBox[{"m", "<=", 
+             RowBox[{"(", 
+              RowBox[{"n", "-", "2"}], ")"}]}], ",", 
+            RowBox[{
+             RowBox[{"l", "=", 
+              RowBox[{"VertexCount", "[", "g", "]"}]}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"j", "=", 
+              RowBox[{"RandomVariate", "[", 
+               RowBox[{"DiscreteUniformDistribution", "[", 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", "l"}], "}"}], "]"}], "]"}]}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"g", "=", 
+              RowBox[{"VertexAdd", "[", 
+               RowBox[{"g", ",", 
+                RowBox[{"{", 
+                 RowBox[{"l", "+", "1"}], "}"}]}], "]"}]}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"g", "=", 
+              RowBox[{"Graph", "[", 
+               RowBox[{"g", ",", 
+                RowBox[{"VertexLabels", "->", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"l", "+", "1"}], "->", 
+                   RowBox[{"f", "[", "y", "]"}]}], "}"}]}]}], "]"}]}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"lab", "=", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Sort", "[", 
+                 RowBox[{"List", "@@@", 
+                  RowBox[{"PropertyValue", "[", 
+                   RowBox[{"g", ",", "VertexLabels"}], "]"}]}], "]"}], "[", 
+                RowBox[{"[", "j", "]"}], "]"}], "[", 
+               RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{"g", "=", 
+              RowBox[{"Graph", "[", 
+               RowBox[{"g", ",", 
+                RowBox[{"VertexLabels", "->", 
+                 RowBox[{"{", 
+                  RowBox[{"j", "->", 
+                   RowBox[{"D", "[", 
+                    RowBox[{"lab", ",", "y"}], "]"}]}], "}"}]}]}], "]"}]}], 
+             ";", "\[IndentingNewLine]", 
+             RowBox[{"g", "=", 
+              RowBox[{"EdgeAdd", "[", 
+               RowBox[{"g", ",", 
+                RowBox[{"j", "->", 
+                 RowBox[{"l", "+", "1"}]}]}], "]"}]}], ";", 
+             RowBox[{"m", "++"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"sample", "=", 
+           RowBox[{
+            RowBox[{"Product", "[", 
+             RowBox[{
+              RowBox[{"ff", "[", 
+               RowBox[{"[", "2", "]"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"ff", ",", 
+                RowBox[{"List", "@@@", 
+                 RowBox[{"PropertyValue", "[", 
+                  RowBox[{"g", ",", "VertexLabels"}], "]"}]}]}], "}"}]}], 
+             "]"}], "/.", " ", 
+            RowBox[{"{", 
+             RowBox[{"y", "->", "x0"}], "}"}]}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"Return", "[", 
+           RowBox[{"sample", "*", 
+            RowBox[{
+             RowBox[{"t\:02c6n", "/", 
+              RowBox[{"PDF", "[", 
+               RowBox[{"dist", ",", "n"}], "]"}]}], "/", "n"}]}], "]"}]}]}], 
+        "]"}]}], "]"}]}], ")"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"f", "[", "y_", "]"}], ":=", 
+  RowBox[{"Exp", "[", "y", "]"}]}], "\n", 
+ RowBox[{"MCsample", "[", 
+  RowBox[{"f", ",", "t", ",", "x0", ",", 
+   RowBox[{"GeometricDistribution", "[", "0.5", "]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.958365034720255*^9, 3.958365034721939*^9}},
+ CellLabel->"In[31]:=",ExpressionUUID->"1c112b93-fb62-4ef0-b862-87b2af133b16"],
+
+Cell[BoxData[
+ RowBox[{"8.`", " ", 
+  SuperscriptBox["\[ExponentialE]", 
+   RowBox[{"4", " ", "x0"}]], " ", "t\:02c6n"}]], "Output",
+ CellChangeTimes->{3.958366703414034*^9},
+ CellLabel->"Out[33]=",ExpressionUUID->"636da251-1170-474b-96d0-8d3eade4b937"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"B", "[", 
+    RowBox[{"f_", ",", "t_", ",", "x0__", ",", "t0_", ",", "n_"}], "]"}], ":=", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"d", "=", 
+      RowBox[{"Length", "[", "x0", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"n", "==", "0"}], ",", 
+       RowBox[{"Return", "[", 
+        RowBox[{"{", 
+         RowBox[{"x0", ",", "1"}], "}"}], "]"}], ",", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"n", "==", "1"}], ",", 
+         RowBox[{"Return", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"x0", "+", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"t", "-", "t0"}], ")"}], "*", 
+              RowBox[{"f", "[", "x0", "]"}]}]}], ",", "2"}], "}"}], "]"}], 
+         ",", 
+         RowBox[{
+          RowBox[{"count", "=", "2"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"sample", "=", 
+           RowBox[{"x0", "+", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"t", "-", "t0"}], ")"}], "*", 
+             RowBox[{"f", "[", "x0", "]"}]}]}]}], ";", "\[IndentingNewLine]", 
+          
+          RowBox[{"g", "=", 
+           RowBox[{"ConstantArray", "[", 
+            RowBox[{
+             RowBox[{"Graph", "[", 
+              RowBox[{"{", 
+               RowBox[{"1", "->", "2"}], "}"}], "]"}], ",", "d"}], "]"}]}], 
+          ";", 
+          RowBox[{"ii", "=", 
+           RowBox[{"Array", "[", 
+            RowBox[{"i", ",", "n"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"For", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"ii", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "=", "1"}], ",", 
+            RowBox[{
+             RowBox[{"ii", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "<=", "d"}], ",", 
+            RowBox[{
+             RowBox[{"ii", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "++"}], ",", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"g", "[", 
+               RowBox[{"[", 
+                RowBox[{"ii", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}], "=", 
+              RowBox[{"Graph", "[", 
+               RowBox[{
+                RowBox[{"g", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"ii", "[", 
+                   RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}], ",", 
+                RowBox[{"VertexLabels", "->", 
+                 RowBox[{"{", 
+                  RowBox[{"1", "->", 
+                   RowBox[{"D", "[", 
+                    RowBox[{
+                    RowBox[{"f", "[", "yy", "]"}], ",", 
+                    RowBox[{"yy", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"ii", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}]}], "]"}]}], 
+                  "}"}]}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"g", "[", 
+               RowBox[{"[", 
+                RowBox[{"ii", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}], "=", 
+              RowBox[{"Graph", "[", 
+               RowBox[{
+                RowBox[{"g", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"ii", "[", 
+                   RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}], ",", 
+                RowBox[{"VertexLabels", "->", 
+                 RowBox[{"{", 
+                  RowBox[{"2", "->", 
+                   RowBox[{
+                    RowBox[{"f", "[", "yy", "]"}], "[", 
+                    RowBox[{"[", 
+                    RowBox[{"ii", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}]}], "}"}]}]}],
+                "]"}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{"m", "=", "1"}], ";", 
+             RowBox[{"count", "+=", "1"}], ";", "\[IndentingNewLine]", 
+             RowBox[{"sample", "+=", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"1", "/", "2"}], "*", 
+                RowBox[{"(", 
+                 RowBox[{"t", "-", "t0"}], ")"}], 
+                RowBox[{"\:02c6VertexCount", "[", 
+                 RowBox[{"g", "[", 
+                  RowBox[{"[", 
+                   RowBox[{"ii", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}], "]"}], "*", 
+                
+                RowBox[{"Product", "[", 
+                 RowBox[{
+                  RowBox[{"ff", "[", 
+                   RowBox[{"[", "2", "]"}], "]"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"ff", ",", 
+                    RowBox[{"List", "@@@", 
+                    RowBox[{"PropertyValue", "[", 
+                    RowBox[{
+                    RowBox[{"g", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"ii", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}], ",", 
+                    "VertexLabels"}], "]"}]}]}], "}"}]}], "]"}]}], "/.", " ", 
+               
+               RowBox[{"{", 
+                RowBox[{"yy", "->", "x0"}], "}"}]}]}]}]}], "]"}], ";", 
+          RowBox[{"list", "=", "g"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"While", "[", 
+           RowBox[{
+            RowBox[{"m", "<=", 
+             RowBox[{"(", 
+              RowBox[{"n", "-", "2"}], ")"}]}], ",", 
+            RowBox[{
+             RowBox[{"temp", "=", "list"}], ";", 
+             RowBox[{"list", "=", 
+              RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{"Do", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"l", "=", 
+                 RowBox[{"VertexCount", "[", "g", "]"}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"For", "[", 
+                 RowBox[{
+                  RowBox[{"j", "=", "1"}], ",", 
+                  RowBox[{"j", "<=", "l"}], ",", 
+                  RowBox[{"j", "++"}], ",", 
+                  RowBox[{
+                   RowBox[{"gg", "=", 
+                    RowBox[{"VertexAdd", "[", 
+                    RowBox[{"g", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"l", "+", "1"}], "}"}]}], "]"}]}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"lab", "=", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Sort", "[", 
+                    RowBox[{"List", "@@@", 
+                    RowBox[{"PropertyValue", "[", 
+                    RowBox[{"gg", ",", "VertexLabels"}], "]"}]}], "]"}], "[", 
+                    
+                    RowBox[{"[", "j", "]"}], "]"}], "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], ";", 
+                   RowBox[{"For", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"ii", "[", 
+                    RowBox[{"[", "l", "]"}], "]"}], "=", "1"}], ",", 
+                    RowBox[{
+                    RowBox[{"ii", "[", 
+                    RowBox[{"[", "l", "]"}], "]"}], "<=", "d"}], ",", 
+                    RowBox[{
+                    RowBox[{"ii", "[", 
+                    RowBox[{"[", "l", "]"}], "]"}], "++"}], ",", 
+                    RowBox[{
+                    RowBox[{"gg", "=", 
+                    RowBox[{"Graph", "[", 
+                    RowBox[{"gg", ",", 
+                    RowBox[{"VertexLabels", "->", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"l", "+", "1"}], "->", 
+                    RowBox[{
+                    RowBox[{"f", "[", "yy", "]"}], "[", 
+                    RowBox[{"[", 
+                    RowBox[{"ii", "[", 
+                    RowBox[{"[", "l", "]"}], "]"}], "]"}], "]"}]}], "}"}]}]}],
+                     "]"}]}], ";", "\[IndentingNewLine]", 
+                    RowBox[{"gg", "=", 
+                    RowBox[{"Graph", "[", 
+                    RowBox[{"gg", ",", 
+                    RowBox[{"VertexLabels", "->", 
+                    RowBox[{"{", 
+                    RowBox[{"j", "->", 
+                    RowBox[{"D", "[", 
+                    RowBox[{"lab", ",", 
+                    RowBox[{"yy", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"ii", "[", 
+                    RowBox[{"[", "l", "]"}], "]"}], "]"}], "]"}]}], "]"}]}], 
+                    "}"}]}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+                    RowBox[{"gg", "=", 
+                    RowBox[{"EdgeAdd", "[", 
+                    RowBox[{"gg", ",", 
+                    RowBox[{"j", "->", 
+                    RowBox[{"l", "+", "1"}]}]}], "]"}]}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"GraphPlot", "[", 
+                    RowBox[{"gg", ",", 
+                    RowBox[{"PlotStyle", "->", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"FontSize", "->", "20"}], ",", 
+                    RowBox[{"FontColor", "->", "Red"}]}], "}"}]}]}], "]"}], 
+                    ";", "\[IndentingNewLine]", 
+                    RowBox[{"count", "+=", "1"}], ";", "\[IndentingNewLine]", 
+                    
+                    RowBox[{"sample", "+=", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"t", "-", "t0"}], ")"}], "\:02c6", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"l", "+", "1"}], ")"}], "/", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"l", "+", "1"}], ")"}], "!"}]}], "*", 
+                    RowBox[{"Product", "[", 
+                    RowBox[{
+                    RowBox[{"ff", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ff", ",", 
+                    RowBox[{"List", "@@@", 
+                    RowBox[{"PropertyValue", "[", 
+                    RowBox[{"gg", ",", "VertexLabels"}], "]"}]}]}], "}"}]}], 
+                    "]"}]}], "/.", " ", 
+                    RowBox[{"{", 
+                    RowBox[{"yy", "->", "x0"}], "}"}]}]}], ";", 
+                    RowBox[{"list", "=", 
+                    RowBox[{"Append", "[", 
+                    RowBox[{"list", ",", "gg"}], "]"}]}]}]}], "]"}]}]}], 
+                 "]"}]}], ",", 
+               RowBox[{"{", 
+                RowBox[{"g", ",", "temp"}], "}"}]}], "]"}], ";", 
+             RowBox[{"m", "++"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"Return", "[", 
+           RowBox[{"{", 
+            RowBox[{"sample", ",", "count"}], "}"}], "]"}]}]}], "]"}]}], 
+      "]"}]}], ")"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.958365051323498*^9, 3.958365051324954*^9}},
+ CellLabel->"In[34]:=",ExpressionUUID->"f3589216-5e07-4215-8981-bc3e91b7b682"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"x0", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0.5"}], "}"}]}], ";", 
+  RowBox[{"t0", "=", "0"}], ";", 
+  RowBox[{"t1", "=", "1.3885"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"f", "[", "y__", "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"1", ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"y", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "*", 
+      RowBox[{"y", "[", 
+       RowBox[{"[", "2", "]"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"y", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], "\:02c62"}]}]}], "}"}]}], "\n", 
+ RowBox[{"B", "[", 
+  RowBox[{"f", ",", "t", ",", "x0", ",", "t0", ",", "4"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.9583650628583384`*^9, 3.958365062859744*^9}, {
+  3.958366642056075*^9, 3.958366649095039*^9}, {3.958366679420375*^9, 
+  3.958366679516816*^9}},
+ CellLabel->"In[35]:=",ExpressionUUID->"34785596-57fc-47ed-9c6c-9988aa8368e8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3}, {{{1, 2}, {1, 3}}, Null}, {
+      GraphLayout -> {"Dimension" -> 2}, 
+       VertexLabels -> {
+        3 -> E^$CellContext`y, 2 -> E^$CellContext`y, 1 -> 
+         E^$CellContext`y}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{{0.4472135954999579, 0.8944271909999159}, {0., 0.}}, {{
+         0.4472135954999579, 0.8944271909999159}, {0.8944271909999159, 0.}}}, 
+         0.011386058141428929`]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {
+         DiskBox[{0.4472135954999579, 0.8944271909999159}, 
+          0.011386058141428929], InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.4585996536413869, 0.9058132491413448}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{0., 0.}, 0.011386058141428929], 
+         InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.011386058141428929, 0.011386058141428929}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.8944271909999159, 0.}, 0.011386058141428929], InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.9058132491413448, 0.011386058141428929}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Print",
+ CellChangeTimes->{3.9583667078919287`*^9},
+ CellLabel->
+  "During evaluation of \
+In[35]:=",ExpressionUUID->"7d2c4c38-3709-4f78-9dbb-c8d640ca1392"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3}, {{{1, 2}, {2, 3}}, Null}, {
+      GraphLayout -> {"Dimension" -> 2}, 
+       VertexLabels -> {
+        3 -> E^$CellContext`y, 2 -> E^$CellContext`y, 1 -> 
+         E^$CellContext`y}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{{0., 3.6739403974420594`*^-16}, {1., 
+         2.4492935982947064`*^-16}}, {{1., 2.4492935982947064`*^-16}, {2., 
+         0.}}}, 0.02261146496815286]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {DiskBox[{0., 3.6739403974420594*^-16}, 0.02261146496815286], 
+         InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.02261146496815286, 0.02261146496815323}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{1., 2.4492935982947064*^-16}, 0.02261146496815286], InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {1.0226114649681528, 0.022611464968153108}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{2., 0.}, 0.02261146496815286], 
+         InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {2.022611464968153, 0.02261146496815286}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Print",
+ CellChangeTimes->{3.95836670793828*^9},
+ CellLabel->
+  "During evaluation of \
+In[35]:=",ExpressionUUID->"794c9341-f11d-4b8d-ae20-23063557d4d2"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3, 4}, {{{1, 2}, {1, 3}, {1, 4}}, Null}, {
+      GraphLayout -> {"Dimension" -> 2}, 
+       VertexLabels -> {
+        3 -> E^$CellContext`y, 4 -> E^$CellContext`y, 2 -> E^$CellContext`y, 
+         1 -> E^$CellContext`y}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{{0.7745966692414834, 0.7745966692414834}, {0., 0.}}, {{
+         0.7745966692414834, 0.7745966692414834}, {0.7745966692414834, 
+         0.}}, {{0.7745966692414834, 0.7745966692414834}, {
+         1.5491933384829668`, 0.}}}, 0.018845521490452433`]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {
+         DiskBox[{0.7745966692414834, 0.7745966692414834}, 
+          0.018845521490452433], InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.7934421907319358, 0.7934421907319358}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{0., 0.}, 0.018845521490452433], 
+         InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.018845521490452433, 0.018845521490452433}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.7745966692414834, 0.}, 0.018845521490452433], InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.7934421907319358, 0.018845521490452433}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{1.5491933384829668, 0.}, 0.018845521490452433], InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {1.5680388599734192, 0.018845521490452433}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Print",
+ CellChangeTimes->{3.958366707981*^9},
+ CellLabel->
+  "During evaluation of \
+In[35]:=",ExpressionUUID->"295d098e-5451-4eac-be8c-2bce55772588"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3, 4}, {{{1, 2}, {1, 3}, {2, 4}}, Null}, {
+      GraphLayout -> {"Dimension" -> 2}, 
+       VertexLabels -> {
+        3 -> E^$CellContext`y, 4 -> E^$CellContext`y, 2 -> E^$CellContext`y, 
+         1 -> E^$CellContext`y}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{{0.4629100498862757, 1.8516401995451028`}, {0., 
+         0.9258200997725514}}, {{0.4629100498862757, 1.8516401995451028`}, {
+         0.9258200997725514, 0.9258200997725514}}, {{0., 
+         0.9258200997725514}, {0., 0.}}}, 0.02139620166504999]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {
+         DiskBox[{0.4629100498862757, 1.8516401995451028}, 
+          0.02139620166504999], InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.4843062515513257, 1.8730364012101528}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0., 0.9258200997725514}, 0.02139620166504999], InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.02139620166504999, 0.9472163014376014}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.9258200997725514, 0.9258200997725514}, 
+          0.02139620166504999], InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.9472163014376014, 0.9472163014376014}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{0., 0.}, 0.02139620166504999], 
+         InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.02139620166504999, 0.02139620166504999}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Print",
+ CellChangeTimes->{3.9583667080212812`*^9},
+ CellLabel->
+  "During evaluation of \
+In[35]:=",ExpressionUUID->"5e0e692f-b5ef-46d1-927c-3c8feb96fdec"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3, 4}, {{{1, 2}, {1, 3}, {3, 4}}, Null}, {
+      GraphLayout -> {"Dimension" -> 2}, 
+       VertexLabels -> {
+        3 -> E^$CellContext`y, 4 -> E^$CellContext`y, 2 -> E^$CellContext`y, 
+         1 -> E^$CellContext`y}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{{0.4629100498862757, 1.8516401995451028`}, {0., 
+         0.9258200997725514}}, {{0.4629100498862757, 1.8516401995451028`}, {
+         0.9258200997725514, 0.9258200997725514}}, {{0.9258200997725514, 
+         0.9258200997725514}, {0.9258200997725514, 0.}}}, 
+         0.02139620166504999]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {
+         DiskBox[{0.4629100498862757, 1.8516401995451028}, 
+          0.02139620166504999], InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.4843062515513257, 1.8730364012101528}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0., 0.9258200997725514}, 0.02139620166504999], InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.02139620166504999, 0.9472163014376014}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.9258200997725514, 0.9258200997725514}, 
+          0.02139620166504999], InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.9472163014376014, 0.9472163014376014}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.9258200997725514, 0.}, 0.02139620166504999], InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.9472163014376014, 0.02139620166504999}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Print",
+ CellChangeTimes->{3.95836670805549*^9},
+ CellLabel->
+  "During evaluation of \
+In[35]:=",ExpressionUUID->"6d6537f9-069e-493a-9a40-af74fe736f3d"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3, 4}, {{{1, 2}, {2, 3}, {1, 4}}, Null}, {
+      GraphLayout -> {"Dimension" -> 2}, 
+       VertexLabels -> {
+        3 -> E^$CellContext`y, 4 -> E^$CellContext`y, 2 -> E^$CellContext`y, 
+         1 -> E^$CellContext`y}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{{0., 0.9258200997725514}, {0.4629100498862757, 
+         1.8516401995451028`}}, {{0., 0.9258200997725514}, {0., 0.}}, {{
+         0.4629100498862757, 1.8516401995451028`}, {0.9258200997725514, 
+         0.9258200997725514}}}, 0.02139620166504999]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {DiskBox[{0., 0.9258200997725514}, 0.02139620166504999], 
+         InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.02139620166504999, 0.9472163014376014}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.4629100498862757, 1.8516401995451028}, 
+          0.02139620166504999], InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.4843062515513257, 1.8730364012101528}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.9258200997725514, 0.9258200997725514}, 
+          0.02139620166504999], InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.9472163014376014, 0.9472163014376014}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{0., 0.}, 0.02139620166504999], 
+         InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.02139620166504999, 0.02139620166504999}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Print",
+ CellChangeTimes->{3.9583667080824413`*^9},
+ CellLabel->
+  "During evaluation of \
+In[35]:=",ExpressionUUID->"fcca76be-ab43-4f96-9bd2-2bbf0add8d27"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3, 4}, {{{1, 2}, {2, 3}, {2, 4}}, Null}, {
+      GraphLayout -> {"Dimension" -> 2}, 
+       VertexLabels -> {
+        3 -> E^$CellContext`y, 4 -> E^$CellContext`y, 2 -> E^$CellContext`y, 
+         1 -> E^$CellContext`y}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{{0., 0.}, {0.7745966692414834, 0.7745966692414834}}, {{
+         0.7745966692414834, 0.7745966692414834}, {0.7745966692414834, 
+         0.}}, {{0.7745966692414834, 0.7745966692414834}, {
+         1.5491933384829668`, 0.}}}, 0.018845521490452433`]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {DiskBox[{0., 0.}, 0.018845521490452433], InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.018845521490452433, 0.018845521490452433}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.7745966692414834, 0.7745966692414834}, 
+          0.018845521490452433], InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.7934421907319358, 0.7934421907319358}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.7745966692414834, 0.}, 0.018845521490452433], InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.7934421907319358, 0.018845521490452433}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{1.5491933384829668, 0.}, 0.018845521490452433], InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {1.5680388599734192, 0.018845521490452433}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Print",
+ CellChangeTimes->{3.9583667081071568`*^9},
+ CellLabel->
+  "During evaluation of \
+In[35]:=",ExpressionUUID->"a35ce395-a338-4341-b5a6-f262f79c9054"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3, 4}, {{{1, 2}, {2, 3}, {3, 4}}, Null}, {
+      GraphLayout -> {"Dimension" -> 2}, 
+       VertexLabels -> {
+        3 -> E^$CellContext`y, 4 -> E^$CellContext`y, 2 -> E^$CellContext`y, 
+         1 -> E^$CellContext`y}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{{0., 6.123233995736766*^-16}, {1., 
+         4.898587196589413*^-16}}, {{1., 4.898587196589413*^-16}, {2., 
+         2.4492935982947064`*^-16}}, {{2., 2.4492935982947064`*^-16}, {3., 
+         0.}}}, 0.030239520958083826`]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {DiskBox[{0., 6.123233995736766*^-16}, 0.030239520958083826], 
+         InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {0.030239520958083826, 0.030239520958084437}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{1., 4.898587196589413*^-16}, 0.030239520958083826], InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {1.030239520958084, 0.030239520958084316}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{2., 2.4492935982947064*^-16}, 0.030239520958083826], 
+         InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {2.0302395209580837, 0.030239520958084073}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{3., 0.}, 0.030239520958083826], 
+         InsetBox[
+          SuperscriptBox["\[ExponentialE]", "y"], 
+          Offset[{2, 2}, {3.0302395209580837, 0.030239520958083826}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Print",
+ CellChangeTimes->{3.958366708128924*^9},
+ CellLabel->
+  "During evaluation of \
+In[35]:=",ExpressionUUID->"8ca7f2e0-8119-4ddc-82b6-f52cfcb011fc"]
+}, Open  ]],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   FrameBox[GridBox[{
+      {
+       ItemBox[
+        TagBox[
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"t", "+", 
+                    RowBox[{"2", " ", "\:02c6", " ", "t"}], "+", 
+                    FractionBox[
+                    RowBox[{"t", " ", 
+                    RowBox[{"\:02c6VertexCount", "[", 
+                    GraphicsBox[
+                    NamespaceBox["NetworkGraphics",
+                    DynamicModuleBox[{Typeset`graph = HoldComplete[
+                    
+                    Graph[{1, 2}, {{{1, 2}}, Null}, {
+                    GraphLayout -> {"Dimension" -> 2}, 
+                    VertexLabels -> {2 -> E^$CellContext`y, 1 -> 
+                    E^$CellContext`y}}]]}, 
+                    TagBox[GraphicsGroupBox[{
+                    {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+                    ArrowBox[{{1., 0.}, {0., 1.2246467991473532`*^-16}}, 
+                    0.01273]}, 
+                    {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+                    0.7]}], {DiskBox[{1., 0.}, 0.01273], InsetBox[
+                    SuperscriptBox["\[ExponentialE]", "y"], 
+                    Offset[{2, 2}, {1.01273, 0.01273}], ImageScaled[{0, 0}],
+                    BaseStyle->"Graphics"]}, {
+                    DiskBox[{0., 1.2246467991473532*^-16}, 0.01273], 
+                    InsetBox[
+                    SuperscriptBox["\[ExponentialE]", "y"], 
+                    Offset[{2, 2}, {0.01273, 0.012730000000000123}], 
+                    ImageScaled[{0, 0}],
+                    BaseStyle->"Graphics"]}}}],
+                    MouseAppearanceTag["NetworkGraphics"]],
+                    AllowKernelInitialization->False]],
+                    
+                    DefaultBaseStyle->{
+                    "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+                    Hue[0.8, 1., 0.6]},
+                    FormatType->TraditionalForm,
+                    FrameTicks->None], "]"}]}], "2"]}], ",", 
+                    RowBox[{"t", "+", 
+                    RowBox[{"3.064842683155108`", " ", "\:02c6", " ", "t"}], 
+                    "+", 
+                    FractionBox[
+                    RowBox[{"t", " ", 
+                    RowBox[{"\:02c6VertexCount", "[", 
+                    GraphicsBox[
+                    NamespaceBox["NetworkGraphics",
+                    DynamicModuleBox[{Typeset`graph = HoldComplete[
+                    
+                    Graph[{1, 2}, {{{1, 2}}, Null}, {
+                    GraphLayout -> {"Dimension" -> 2}, 
+                    VertexLabels -> {2 -> E^$CellContext`y, 1 -> 
+                    E^$CellContext`y}}]]}, 
+                    TagBox[GraphicsGroupBox[{
+                    {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+                    ArrowBox[{{1., 0.}, {0., 1.2246467991473532`*^-16}}, 
+                    0.01273]}, 
+                    {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+                    0.7]}], {DiskBox[{1., 0.}, 0.01273], InsetBox[
+                    SuperscriptBox["\[ExponentialE]", "y"], 
+                    Offset[{2, 2}, {1.01273, 0.01273}], ImageScaled[{0, 0}],
+                    BaseStyle->"Graphics"]}, {
+                    DiskBox[{0., 1.2246467991473532*^-16}, 0.01273], 
+                    InsetBox[
+                    SuperscriptBox["\[ExponentialE]", "y"], 
+                    Offset[{2, 2}, {0.01273, 0.012730000000000123}], 
+                    ImageScaled[{0, 0}],
+                    BaseStyle->"Graphics"]}}}],
+                    MouseAppearanceTag["NetworkGraphics"]],
+                    AllowKernelInitialization->False]],
+                    
+                    DefaultBaseStyle->{
+                    "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+                    Hue[0.8, 1., 0.6]},
+                    FormatType->TraditionalForm,
+                    FrameTicks->None], "]"}]}], "2"]}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"t", "+", 
+                    RowBox[{"3.0648426831551085`", " ", "\:02c6", " ", "t"}], 
+                    "+", 
+                    FractionBox[
+                    RowBox[{"t", " ", 
+                    RowBox[{"\:02c6VertexCount", "[", 
+                    GraphicsBox[
+                    NamespaceBox["NetworkGraphics",
+                    DynamicModuleBox[{Typeset`graph = HoldComplete[
+                    
+                    Graph[{1, 2}, {{{1, 2}}, Null}, {
+                    GraphLayout -> {"Dimension" -> 2}, 
+                    VertexLabels -> {2 -> E^$CellContext`y, 1 -> 
+                    E^$CellContext`y}}]]}, 
+                    TagBox[GraphicsGroupBox[{
+                    {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+                    ArrowBox[{{1., 0.}, {0., 1.2246467991473532`*^-16}}, 
+                    0.01273]}, 
+                    {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+                    0.7]}], {DiskBox[{1., 0.}, 0.01273], InsetBox[
+                    SuperscriptBox["\[ExponentialE]", "y"], 
+                    Offset[{2, 2}, {1.01273, 0.01273}], ImageScaled[{0, 0}],
+                    BaseStyle->"Graphics"]}, {
+                    DiskBox[{0., 1.2246467991473532*^-16}, 0.01273], 
+                    InsetBox[
+                    SuperscriptBox["\[ExponentialE]", "y"], 
+                    Offset[{2, 2}, {0.01273, 0.012730000000000123}], 
+                    ImageScaled[{0, 0}],
+                    BaseStyle->"Graphics"]}}}],
+                    MouseAppearanceTag["NetworkGraphics"]],
+                    AllowKernelInitialization->False]],
+                    
+                    DefaultBaseStyle->{
+                    "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+                    Hue[0.8, 1., 0.6]},
+                    FormatType->TraditionalForm,
+                    FrameTicks->None], "]"}]}], "2"]}], ",", 
+                    RowBox[{"t", "+", 
+                    RowBox[{"4.129685366310217`", " ", "\:02c6", " ", "t"}], 
+                    "+", 
+                    FractionBox[
+                    RowBox[{"t", " ", 
+                    RowBox[{"\:02c6VertexCount", "[", 
+                    GraphicsBox[
+                    NamespaceBox["NetworkGraphics",
+                    DynamicModuleBox[{Typeset`graph = HoldComplete[
+                    
+                    Graph[{1, 2}, {{{1, 2}}, Null}, {
+                    GraphLayout -> {"Dimension" -> 2}, 
+                    VertexLabels -> {2 -> E^$CellContext`y, 1 -> 
+                    E^$CellContext`y}}]]}, 
+                    TagBox[GraphicsGroupBox[{
+                    {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+                    ArrowBox[{{1., 0.}, {0., 1.2246467991473532`*^-16}}, 
+                    0.01273]}, 
+                    {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+                    0.7]}], {DiskBox[{1., 0.}, 0.01273], InsetBox[
+                    SuperscriptBox["\[ExponentialE]", "y"], 
+                    Offset[{2, 2}, {1.01273, 0.01273}], ImageScaled[{0, 0}],
+                    BaseStyle->"Graphics"]}, {
+                    DiskBox[{0., 1.2246467991473532*^-16}, 0.01273], 
+                    InsetBox[
+                    SuperscriptBox["\[ExponentialE]", "y"], 
+                    Offset[{2, 2}, {0.01273, 0.012730000000000123}], 
+                    ImageScaled[{0, 0}],
+                    BaseStyle->"Graphics"]}}}],
+                    MouseAppearanceTag["NetworkGraphics"]],
+                    AllowKernelInitialization->False]],
+                    
+                    DefaultBaseStyle->{
+                    "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+                    Hue[0.8, 1., 0.6]},
+                    FormatType->TraditionalForm,
+                    FrameTicks->None], "]"}]}], "2"]}]}], "}"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"t", "+", 
+                    RowBox[{"3.064842683155108`", " ", "\:02c6", " ", "t"}], 
+                    "+", 
+                    FractionBox[
+                    RowBox[{"t", " ", 
+                    RowBox[{"\:02c6VertexCount", "[", 
+                    GraphicsBox[
+                    NamespaceBox["NetworkGraphics",
+                    DynamicModuleBox[{Typeset`graph = HoldComplete[
+                    
+                    Graph[{1, 2}, {{{1, 2}}, Null}, {
+                    GraphLayout -> {"Dimension" -> 2}, 
+                    VertexLabels -> {2 -> E^$CellContext`y, 1 -> 
+                    E^$CellContext`y}}]]}, 
+                    TagBox[GraphicsGroupBox[{
+                    {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+                    ArrowBox[{{1., 0.}, {0., 1.2246467991473532`*^-16}}, 
+                    0.01273]}, 
+                    {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+                    0.7]}], {DiskBox[{1., 0.}, 0.01273], InsetBox[
+                    SuperscriptBox["\[ExponentialE]", "y"], 
+                    Offset[{2, 2}, {1.01273, 0.01273}], ImageScaled[{0, 0}],
+                    BaseStyle->"Graphics"]}, {
+                    DiskBox[{0., 1.2246467991473532*^-16}, 0.01273], 
+                    InsetBox[
+                    SuperscriptBox["\[ExponentialE]", "y"], 
+                    Offset[{2, 2}, {0.01273, 0.012730000000000123}], 
+                    ImageScaled[{0, 0}],
+                    BaseStyle->"Graphics"]}}}],
+                    MouseAppearanceTag["NetworkGraphics"]],
+                    AllowKernelInitialization->False]],
+                    
+                    DefaultBaseStyle->{
+                    "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+                    Hue[0.8, 1., 0.6]},
+                    FormatType->TraditionalForm,
+                    FrameTicks->None], "]"}]}], "2"]}], ",", 
+                    RowBox[{"t", "+", 
+                    RowBox[{"4.129685366310216`", " ", "\:02c6", " ", "t"}], 
+                    "+", 
+                    FractionBox[
+                    RowBox[{"t", " ", 
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton"]}], "2"]}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"t", "+", 
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton"], "+", 
+                    FractionBox[
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton"], "2"]}], ",", 
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton"]}], "}"}]}], "}"}]}], "}"}], 
+                    ",", 
+                    RowBox[{"{", 
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton"], "}"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton"], "}"}]}], "}"}], ",", 
+                   RowBox[{"{", 
+                    TemplateBox[{"1"},
+                    "OutputSizeLimit`Skeleton"], "}"}]}], "}"}], ",", 
+                 RowBox[{"{", 
+                  TemplateBox[{"1"},
+                   "OutputSizeLimit`Skeleton"], "}"}]}], "}"}], ",", 
+               TemplateBox[{"1"},
+                "OutputSizeLimit`Skeleton"]}], "}"}], ",", 
+             TemplateBox[{"1"},
+              "OutputSizeLimit`Skeleton"]}], "}"}], ",", 
+           TemplateBox[{"1"},
+            "OutputSizeLimit`Skeleton"]}], "}"}],
+         Short[#, 5]& ],
+        BaseStyle->{Deployed -> False},
+        StripOnInput->False]},
+      {GridBox[{
+         {
+          PaneBox[
+           TagBox[
+            TooltipBox[
+             StyleBox[
+              StyleBox[
+               DynamicBox[ToBoxes[
+                 FEPrivate`FrontEndResource[
+                 "FEStrings", "sizeBriefExplanation"], StandardForm],
+                ImageSizeCache->{52.58203125, {3., 7.}}],
+               StripOnInput->False,
+               DynamicUpdating->True,
+               LineSpacing->{1, 2},
+               LineIndent->0,
+               LinebreakAdjustments->{1., 100, 0, 0, 0}], "OSLText",
+              StripOnInput->False],
+             StyleBox[
+              DynamicBox[
+               ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"], 
+                StandardForm]], DynamicUpdating -> True, LineIndent -> 0, 
+              LinebreakAdjustments -> {1., 100, 0, 0, 0}, 
+              LineSpacing -> {1, 2}, StripOnInput -> False]],
+            Annotation[#, 
+             Style[
+              Dynamic[
+               FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"]], 
+              DynamicUpdating -> True, LineIndent -> 0, 
+              LinebreakAdjustments -> {1., 100, 0, 0, 0}, 
+              LineSpacing -> {1, 2}], "Tooltip"]& ],
+           Alignment->Center,
+           BaselinePosition->Baseline,
+           ImageSize->{Automatic, {25, Full}}], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm],
+               ImageSizeCache->{42.94921875, {0., 7.}}],
+              StripOnInput->False,
+              DynamicUpdating->True,
+              LineSpacing->{1, 2},
+              LineIndent->0,
+              LinebreakAdjustments->{1., 100, 0, 0, 0}], "OSLControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True,
+              LineSpacing->{1, 2},
+              LineIndent->0,
+              LinebreakAdjustments->{1., 100, 0, 0, 0}], "OSLControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, {25, Full}}],
+           Appearance->None,
+           BaselinePosition->Baseline,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 37, 28789472133970276985, 5/2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm],
+               ImageSizeCache->{49.7578125, {0., 7.}}],
+              StripOnInput->False,
+              DynamicUpdating->True,
+              LineSpacing->{1, 2},
+              LineIndent->0,
+              LinebreakAdjustments->{1., 100, 0, 0, 0}], "OSLControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True,
+              LineSpacing->{1, 2},
+              LineIndent->0,
+              LinebreakAdjustments->{1., 100, 0, 0, 0}], "OSLControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, {25, Full}}],
+           Appearance->None,
+           BaselinePosition->Baseline,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 37, 28789472133970276985, 5 2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm],
+               ImageSizeCache->{36.87890625, {0., 7.}}],
+              StripOnInput->False,
+              DynamicUpdating->True,
+              LineSpacing->{1, 2},
+              LineIndent->0,
+              LinebreakAdjustments->{1., 100, 0, 0, 0}], "OSLControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True,
+              LineSpacing->{1, 2},
+              LineIndent->0,
+              LinebreakAdjustments->{1., 100, 0, 0, 0}], "OSLControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, {25, Full}}],
+           Appearance->None,
+           BaselinePosition->Baseline,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 37, 28789472133970276985, Infinity],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm],
+               ImageSizeCache->{63.8671875, {0., 7.}}],
+              StripOnInput->False,
+              DynamicUpdating->True,
+              LineSpacing->{1, 2},
+              LineIndent->0,
+              LinebreakAdjustments->{1., 100, 0, 0, 0}], "OSLControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True,
+              LineSpacing->{1, 2},
+              LineIndent->0,
+              LinebreakAdjustments->{1., 100, 0, 0, 0}], "OSLControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, {25, Full}}],
+           Appearance->None,
+           BaselinePosition->Baseline,
+           ButtonFunction:>FrontEndExecute[{
+              FrontEnd`SetOptions[
+              FrontEnd`$FrontEnd, 
+               FrontEnd`PreferencesSettings -> {"Page" -> "Advanced"}], 
+              FrontEnd`FrontEndToken["PreferencesDialog"]}],
+           Evaluator->None,
+           Method->"Preemptive"]}
+        },
+        AutoDelete->False,
+        FrameStyle->GrayLevel[0.85],
+        GridBoxDividers->{"Columns" -> {False, {True}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{2}}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+     GridBoxDividers->{"Columns" -> {{False}}, "Rows" -> {{False}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{1.}}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "Rows" -> {
+         Offset[0.2], 
+         Offset[1.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}}],
+    BaseStyle->"OutputSizeLimit",
+    FrameMargins->{{12, 12}, {0, 15}},
+    FrameStyle->GrayLevel[0.85],
+    RoundingRadius->5,
+    StripOnInput->False],
+   Deploy,
+   DefaultBaseStyle->"Deploy"],
+  If[28789472133970276985 === $SessionID, 
+   Out[37], Message[
+     MessageName[Syntax, "noinfoker"]]; Missing["NotAvailable"]; 
+   Null]]], "Output",
+ CellChangeTimes->{3.958366709678947*^9},
+ CellLabel->"Out[37]=",ExpressionUUID->"1e079a17-ea8e-420d-bacc-9c72ed223464"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"MCsample", "[", 
+    RowBox[{"f_", ",", "t_", ",", "x0_", ",", "t0_", ",", "dist_"}], "]"}], ":=", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"n", "=", 
+      RowBox[{"RandomVariate", "[", "dist", "]"}]}], ";", "\n", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"n", "==", "0"}], ",", 
+       RowBox[{"Return", "[", 
+        RowBox[{"x0", "/", 
+         RowBox[{"PDF", "[", 
+          RowBox[{"dist", ",", "0"}], "]"}]}], "]"}], ",", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"n", "==", "1"}], ",", 
+         RowBox[{"Return", "[", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"t", "-", "t0"}], ")"}], "*", 
+           RowBox[{
+            RowBox[{"f", "[", "x0", "]"}], "/", 
+            RowBox[{"PDF", "[", 
+             RowBox[{"dist", ",", "1"}], "]"}]}]}], "]"}], ",", 
+         RowBox[{
+          RowBox[{"g", "=", 
+           RowBox[{"ConstantArray", "[", 
+            RowBox[{
+             RowBox[{"Graph", "[", 
+              RowBox[{"{", 
+               RowBox[{"1", "->", "2"}], "}"}], "]"}], ",", "d"}], "]"}]}], 
+          ";", 
+          RowBox[{"ii", "=", 
+           RowBox[{"Array", "[", 
+            RowBox[{"i", ",", "n"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"sample", "=", "0"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"For", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"ii", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "=", "1"}], ",", 
+            RowBox[{
+             RowBox[{"ii", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "<=", "d"}], ",", 
+            RowBox[{
+             RowBox[{"ii", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "++"}], ",", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"g", "[", 
+               RowBox[{"[", 
+                RowBox[{"ii", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}], "=", 
+              RowBox[{"Graph", "[", 
+               RowBox[{
+                RowBox[{"g", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"ii", "[", 
+                   RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}], ",", 
+                RowBox[{"VertexLabels", "->", 
+                 RowBox[{"{", 
+                  RowBox[{"1", "->", 
+                   RowBox[{"D", "[", 
+                    RowBox[{
+                    RowBox[{"f", "[", "yy", "]"}], ",", 
+                    RowBox[{"yy", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"ii", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}]}], "]"}]}], 
+                  "}"}]}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"g", "[", 
+               RowBox[{"[", 
+                RowBox[{"ii", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}], "=", 
+              RowBox[{"Graph", "[", 
+               RowBox[{
+                RowBox[{"g", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"ii", "[", 
+                   RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}], ",", 
+                RowBox[{"VertexLabels", "->", 
+                 RowBox[{"{", 
+                  RowBox[{"2", "->", 
+                   RowBox[{
+                    RowBox[{"f", "[", "yy", "]"}], "[", 
+                    RowBox[{"[", 
+                    RowBox[{"ii", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}]}], "}"}]}]}],
+                "]"}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{"sample", "+=", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"t", "-", "t0"}], ")"}], 
+                RowBox[{
+                 RowBox[{"\:02c62", "/", 
+                  RowBox[{"PDF", "[", 
+                   RowBox[{"dist", ",", "2"}], "]"}]}], "/", "2"}], "*", 
+                RowBox[{"Product", "[", 
+                 RowBox[{
+                  RowBox[{"ff", "[", 
+                   RowBox[{"[", "2", "]"}], "]"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"ff", ",", 
+                    RowBox[{"List", "@@@", 
+                    RowBox[{"PropertyValue", "[", 
+                    RowBox[{
+                    RowBox[{"g", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"ii", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}], ",", 
+                    "VertexLabels"}], "]"}]}]}], "}"}]}], "]"}]}], "/.", " ", 
+               
+               RowBox[{"{", 
+                RowBox[{"yy", "->", "x0"}], "}"}]}]}]}]}], "]"}], ";", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"n", "==", "2"}], ",", 
+            RowBox[{"Return", "[", "sample", "]"}]}], "]"}], ";", 
+          RowBox[{"sample", "=", "0"}], ";", 
+          RowBox[{"list", "=", "g"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"m", "=", "1"}], ";", 
+          RowBox[{"While", "[", 
+           RowBox[{
+            RowBox[{"m", "<=", 
+             RowBox[{"(", 
+              RowBox[{"n", "-", "2"}], ")"}]}], ",", 
+            RowBox[{
+             RowBox[{"temp", "=", "list"}], ";", 
+             RowBox[{"list", "=", 
+              RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{"Do", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"l", "=", 
+                 RowBox[{"VertexCount", "[", "g", "]"}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"j", "=", 
+                 RowBox[{"RandomVariate", "[", 
+                  RowBox[{"DiscreteUniformDistribution", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"1", ",", "l"}], "}"}], "]"}], "]"}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"gg", "=", 
+                 RowBox[{"VertexAdd", "[", 
+                  RowBox[{"g", ",", 
+                   RowBox[{"{", 
+                    RowBox[{"l", "+", "1"}], "}"}]}], "]"}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"lab", "=", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Sort", "[", 
+                    RowBox[{"List", "@@@", 
+                    RowBox[{"PropertyValue", "[", 
+                    RowBox[{"gg", ",", "VertexLabels"}], "]"}]}], "]"}], "[", 
+                   
+                   RowBox[{"[", "j", "]"}], "]"}], "[", 
+                  RowBox[{"[", "2", "]"}], "]"}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"For", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"ii", "[", 
+                    RowBox[{"[", "l", "]"}], "]"}], "=", "1"}], ",", 
+                  RowBox[{
+                   RowBox[{"ii", "[", 
+                    RowBox[{"[", "l", "]"}], "]"}], "<=", "d"}], ",", 
+                  RowBox[{
+                   RowBox[{"ii", "[", 
+                    RowBox[{"[", "l", "]"}], "]"}], "++"}], ",", 
+                  RowBox[{
+                   RowBox[{"gg", "=", 
+                    RowBox[{"Graph", "[", 
+                    RowBox[{"gg", ",", 
+                    RowBox[{"VertexLabels", "->", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"l", "+", "1"}], "->", 
+                    RowBox[{
+                    RowBox[{"f", "[", "yy", "]"}], "[", 
+                    RowBox[{"[", 
+                    RowBox[{"ii", "[", 
+                    RowBox[{"[", "l", "]"}], "]"}], "]"}], "]"}]}], "}"}]}]}],
+                     "]"}]}], ";", "\[IndentingNewLine]", 
+                   RowBox[{"gg", "=", 
+                    RowBox[{"Graph", "[", 
+                    RowBox[{"gg", ",", 
+                    RowBox[{"VertexLabels", "->", 
+                    RowBox[{"{", 
+                    RowBox[{"j", "->", 
+                    RowBox[{"D", "[", 
+                    RowBox[{"lab", ",", 
+                    RowBox[{"yy", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"ii", "[", 
+                    RowBox[{"[", "l", "]"}], "]"}], "]"}], "]"}]}], "]"}]}], 
+                    "}"}]}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+                   RowBox[{"gg", "=", 
+                    RowBox[{"EdgeAdd", "[", 
+                    RowBox[{"gg", ",", 
+                    RowBox[{"j", "->", 
+                    RowBox[{"l", "+", "1"}]}]}], "]"}]}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"GraphPlot", "[", 
+                    RowBox[{"gg", ",", 
+                    RowBox[{"PlotStyle", "->", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"FontSize", "->", "20"}], ",", 
+                    RowBox[{"FontColor", "->", "Red"}]}], "}"}]}]}], "]"}], 
+                   ";", "\[IndentingNewLine]", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"m", "==", 
+                    RowBox[{"(", 
+                    RowBox[{"n", "-", "2"}], ")"}]}], ",", 
+                    RowBox[{"sample", "+=", 
+                    RowBox[{
+                    RowBox[{"Product", "[", 
+                    RowBox[{
+                    RowBox[{"ff", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"ff", ",", 
+                    RowBox[{"List", "@@@", 
+                    RowBox[{"PropertyValue", "[", 
+                    RowBox[{"gg", ",", "VertexLabels"}], "]"}]}]}], "}"}]}], 
+                    "]"}], "/.", " ", 
+                    RowBox[{"{", 
+                    RowBox[{"yy", "->", "x0"}], "}"}]}]}]}], "]"}], ";", 
+                   RowBox[{"list", "=", 
+                    RowBox[{"Append", "[", 
+                    RowBox[{"list", ",", "gg"}], "]"}]}]}]}], "]"}]}], ",", 
+               RowBox[{"{", 
+                RowBox[{"g", ",", "temp"}], "}"}]}], "]"}], ";", 
+             RowBox[{"m", "++"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"Return", "[", 
+           RowBox[{"sample", "*", 
+            RowBox[{"(", 
+             RowBox[{"t", "-", "t0"}], ")"}], 
+            RowBox[{
+             RowBox[{"\:02c6n", "/", 
+              RowBox[{"PDF", "[", 
+               RowBox[{"dist", ",", "n"}], "]"}]}], "/", "n"}]}], "]"}]}]}], 
+        "]"}]}], "]"}]}], ")"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.9583653435519876`*^9, 3.958365343553383*^9}, {
+  3.958365392876554*^9, 3.958365422251191*^9}},
+ CellLabel->"In[38]:=",ExpressionUUID->"5cb7151c-ea96-4c37-8741-86db0976a1c4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"x0", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0.5"}], "}"}]}], ";", 
+  RowBox[{"t0", "=", "0"}], ";", 
+  RowBox[{"t1", "=", "1.3885"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"f", "[", "y__", "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"1", ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"y", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "*", 
+      RowBox[{"y", "[", 
+       RowBox[{"[", "2", "]"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{"y", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], "\:02c62"}]}]}], "}"}]}], "\n", 
+ RowBox[{"MCsample", "[", 
+  RowBox[{"f", ",", "t", ",", "x0", ",", "t0", ",", 
+   RowBox[{"GeometricDistribution", "[", "0.5", "]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.958365407186549*^9, 3.9583654071875772`*^9}},
+ CellLabel->"In[42]:=",ExpressionUUID->"54ecf2d6-2d49-4642-9052-b75f6f26f6c7"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"4.`", " ", "t"}], ",", 
+   RowBox[{"6.594885082800513`", " ", "t"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.958366717891295*^9, 3.958366722703843*^9}},
+ CellLabel->"Out[44]=",ExpressionUUID->"9c0a3fa5-8849-4b1c-a060-1e15c1e13377"]
+}, Open  ]]
+},
+WindowSize->{937.5, 975.},
+WindowMargins->{{322.5, Automatic}, {0, Automatic}},
+FrontEndVersion->"12.3 for Linux x86 (64-bit) (July 9, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"37b9e01b-5df0-4188-856b-7847cc904c1a"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[400, 13, 319, 5, 29, "Input",ExpressionUUID->"e3c6b423-28f8-4643-92ea-0c78abcfd342"],
+Cell[CellGroupData[{
+Cell[744, 22, 3342, 95, 204, "Input",ExpressionUUID->"7e32a0be-8137-46a6-93ab-31d4f3909437"],
+Cell[4089, 119, 2034, 64, 82, "Output",ExpressionUUID->"36bc219d-f935-4936-8421-029fb877d177"]
+}, Open  ]],
+Cell[6138, 186, 319, 5, 29, "Input",ExpressionUUID->"5af71655-b85f-4d76-8f52-fd90689301b5"],
+Cell[6460, 193, 6933, 169, 443, "Input",ExpressionUUID->"d8a99b74-9137-4e05-a37d-19b8561d4228"],
+Cell[CellGroupData[{
+Cell[13418, 366, 254, 4, 29, "Input",ExpressionUUID->"8565b6eb-2d08-4ac6-b470-e4a8e0577a75"],
+Cell[CellGroupData[{
+Cell[13697, 374, 2008, 44, 363, "Print",ExpressionUUID->"8859d018-9006-4496-86c3-09f756bcf1e0"],
+Cell[15708, 420, 2054, 45, 36, "Print",ExpressionUUID->"691ac18e-a42f-4ae5-a0fc-0a16400a455c"],
+Cell[17765, 467, 2468, 54, 203, "Print",ExpressionUUID->"eed941e3-8b44-4e26-a44b-0ad024ebfe73"],
+Cell[20236, 523, 2514, 54, 440, "Print",ExpressionUUID->"8e9ccae5-af17-4256-a50e-a33d5c759069"],
+Cell[22753, 579, 2571, 55, 440, "Print",ExpressionUUID->"e3e14f6b-4f39-4fa8-a35d-80a71ca7e47b"],
+Cell[25327, 636, 2512, 54, 440, "Print",ExpressionUUID->"3dd4c6b1-8278-47f1-bb65-8806cbe4293b"],
+Cell[27842, 692, 2487, 52, 200, "Print",ExpressionUUID->"8f5d04f4-7724-44f9-8817-6555391ba115"],
+Cell[30332, 746, 2551, 55, 36, "Print",ExpressionUUID->"4787e75d-eaea-4f61-b26f-f589893001e8"]
+}, Open  ]],
+Cell[32898, 804, 3563, 95, 85, "Output",ExpressionUUID->"7327f5d8-e22c-46d0-9e87-aaa0d9000bff"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36498, 904, 5269, 132, 324, "Input",ExpressionUUID->"1c112b93-fb62-4ef0-b862-87b2af133b16"],
+Cell[41770, 1038, 253, 5, 33, "Output",ExpressionUUID->"636da251-1170-474b-96d0-8d3eade4b937"]
+}, Open  ]],
+Cell[42038, 1046, 10789, 258, 484, "Input",ExpressionUUID->"f3589216-5e07-4215-8981-bc3e91b7b682"],
+Cell[CellGroupData[{
+Cell[52852, 1308, 901, 25, 71, "Input",ExpressionUUID->"34785596-57fc-47ed-9c6c-9988aa8368e8"],
+Cell[CellGroupData[{
+Cell[53778, 1337, 1888, 41, 369, "Print",ExpressionUUID->"7d2c4c38-3709-4f78-9dbb-c8d640ca1392"],
+Cell[55669, 1380, 1847, 40, 38, "Print",ExpressionUUID->"794c9341-f11d-4b8d-ae20-23063557d4d2"],
+Cell[57519, 1422, 2264, 47, 204, "Print",ExpressionUUID->"295d098e-5451-4eac-be8c-2bce55772588"],
+Cell[59786, 1471, 2286, 48, 440, "Print",ExpressionUUID->"5e0e692f-b5ef-46d1-927c-3c8feb96fdec"],
+Cell[62075, 1521, 2340, 49, 440, "Print",ExpressionUUID->"6d6537f9-069e-493a-9a40-af74fe736f3d"],
+Cell[64418, 1572, 2286, 48, 440, "Print",ExpressionUUID->"fcca76be-ab43-4f96-9bd2-2bbf0add8d27"],
+Cell[66707, 1622, 2259, 46, 204, "Print",ExpressionUUID->"a35ce395-a338-4341-b5a6-f262f79c9054"],
+Cell[68969, 1670, 2239, 47, 37, "Print",ExpressionUUID->"8ca7f2e0-8119-4ddc-82b6-f52cfcb011fc"]
+}, Open  ]],
+Cell[71223, 1720, 20738, 470, 242, "Output",ExpressionUUID->"1e079a17-ea8e-420d-bacc-9c72ed223464"]
+}, Open  ]],
+Cell[91976, 2193, 10573, 252, 536, "Input",ExpressionUUID->"5cb7151c-ea96-4c37-8741-86db0976a1c4"],
+Cell[CellGroupData[{
+Cell[102574, 2449, 861, 24, 71, "Input",ExpressionUUID->"54ecf2d6-2d49-4642-9052-b75f6f26f6c7"],
+Cell[103438, 2475, 285, 6, 33, "Output",ExpressionUUID->"9c0a3fa5-8849-4b1c-a060-1e15c1e13377"]
+}, Open  ]]
+}
+]
+*)
+
